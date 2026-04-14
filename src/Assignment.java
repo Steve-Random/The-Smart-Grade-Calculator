@@ -4,15 +4,15 @@ public class Assignment {
     private double score;
     private double maxScore;
 
-    public Assignment( String name, double score, double maxScore){
+    public Assignment(String name, double score, double maxScore) {
         this.name = name;
         this.score = score;
-        this.maxScore = (maxScore == 0)?1:maxScore;
+        this.maxScore = (maxScore == 0) ? 1 : maxScore;
     }
 
     // Get Methods
-    public double getPercentage(){
-        return (score/maxScore)*100;
+    public double getPercentage() {
+        return (score / maxScore) * 100;
     }
 
     public String getName() {
