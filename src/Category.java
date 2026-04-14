@@ -6,20 +6,20 @@ public class Category {
     private double weight; // (use decimals example: 0.35 for 35%
     private List<Assignment> assignments;
 
-    public Category (String name, double weight){
+    public Category(String name, double weight) {
         this.name = name;
         this.weight = weight;
         this.assignments = new ArrayList<>();
     }
 
     //Adds a new grade to this specific category
-    public void addAssignment( String assignmentName, double score, double maxScore){
-        assignments.add( new Assignment(assignmentName, score, maxScore));
+    public void addAssignment(String assignmentName, double score, double maxScore) {
+        assignments.add(new Assignment(assignmentName, score, maxScore));
     }
 
     //Method to return the mean of all assignments for a category
     public double calculateCategoryAverage() {
-        if(assignments.isEmpty()){
+        if (assignments.isEmpty()) {
             return 0;
         }
 
@@ -29,21 +29,23 @@ public class Category {
             sumOfScores += currentAssignment.getScore();
             sumOfTotals += currentAssignment.getMaxScore();
         }
-        return (sumOfTotals == 0)?0:(sumOfScores / sumOfTotals)*100;
+        return (sumOfTotals == 0) ? 0 : (sumOfScores / sumOfTotals) * 100;
     }
 
-    public double getPercentageContributionOfCategory(){
+    public double getPercentageContributionOfCategory() {
         return calculateCategoryAverage() * weight;
     }
 
     // Get Methods
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public double getWeight(){
+
+    public double getWeight() {
         return weight;
     }
-    public List<Assignment> getAssignments(){
+
+    public List<Assignment> getAssignments() {
         return assignments;
     }
 

@@ -6,19 +6,19 @@ public class GradeManager {
 
     private List<Category> categories;
 
-    public GradeManager( List category){
+    public GradeManager(List category) {
         this.categories = new ArrayList<>();
     }
 
-    public String calculateTotalGrade(){
-
+    public String calculateTotalGrade() {
+    return "";
     }
 
-    public double calculateGoalScore(){
-
+    public double calculateGoalScore() {
+    return 0;
     }
 
-    public void saveToFile(){
+    public void saveToFile() {
 
     }
 }
