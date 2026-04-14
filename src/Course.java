@@ -6,7 +6,7 @@ public class Course {
     private int courseNumber;
     private List<Category> categories;
 
-    public Course(String name, int courseNumber, List categories) {
+    public Course(String name, int courseNumber) {
         this.name = name;
         this.courseNumber = courseNumber;
         this.categories = new ArrayList<>();

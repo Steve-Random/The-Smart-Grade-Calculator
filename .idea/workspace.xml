@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ea2f083-8d8c-4c23-be11-a871f7bced3d" name="Changes" comment="created the GradeManager class and did some modifications to Assignment and Category classes" />
+    <list default="true" id="6ea2f083-8d8c-4c23-be11-a871f7bced3d" name="Changes" comment="Added methods and more structure to the Course class">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GradeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GradeManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,6 +55,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -65,6 +73,21 @@
     "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="UNNAMED_CLASS_CONFIGURATION" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="The-Smart-Grade-Calculator" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="6ea2f083-8d8c-4c23-be11-a871f7bced3d" name="Changes" comment="" />
@@ -105,7 +128,23 @@
       <option name="project" value="LOCAL" />
       <updated>1776188311460</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Created a new branch Building 2">
+      <option name="closed" value="true" />
+      <created>1776188534260</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1776188534260</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added methods and more structure to the Course class">
+      <option name="closed" value="true" />
+      <created>1776189729421</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1776189729421</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +178,8 @@
     <MESSAGE value="Initial Commit (project Structure)" />
     <MESSAGE value="Merge pull request #1 from Steve-Random/Building1&#10;&#10;Building1" />
     <MESSAGE value="created the GradeManager class and did some modifications to Assignment and Category classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="created the GradeManager class and did some modifications to Assignment and Category classes" />
+    <MESSAGE value="Created a new branch Building 2" />
+    <MESSAGE value="Added methods and more structure to the Course class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added methods and more structure to the Course class" />
   </component>
 </project>
