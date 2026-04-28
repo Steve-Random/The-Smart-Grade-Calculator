@@ -26,6 +26,26 @@ public class Course {
         return finalGrade;
     }
 
+    //What makes the calculator smart
+    //The method to calculate required points for a target grade
+    public double calculateRequiredScore( double targetGrade ){
+        double currentPoints = calculateFinalGrade();
+        double totalWeightUsed = 0;
+        for( Category category: categories){
+            if (!category.getAssignments().isEmpty()){
+                totalWeightUsed += category.getWeight();
+            }
+        }
+        double remainingWeight = 1.0 - totalWeightUsed;
+
+        if( remainingWeight <= 0){
+            System.out.println("No weight remaining in the course");
+            return -1;
+        }
+
+        return (targetGrade - currentPoints)/remainingWeight;
+    }
+
     //Get Methods
     public String getName() {
         return name;
