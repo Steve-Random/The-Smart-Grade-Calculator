@@ -1,5 +1,5 @@
 public static void main(String[] args) {
-    Course myCourse = new Course("Computer Science", 101);
+    /*Course myCourse = new Course("Computer Science", 101);
 
     Category homework = new Category("HomeWork", 0.4);
     Category exams = new Category("Exams", 0.6);
@@ -25,5 +25,8 @@ public static void main(String[] args) {
     } else {
         System.out.printf("To get a %.1f, you need a %.1f%% on your remaining work\n", targetScore, neededScore);
 
-    }
+    }*/
+
+    GradeManager manager = new GradeManager();
+    manager.start();
 }
