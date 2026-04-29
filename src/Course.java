@@ -16,6 +16,12 @@ public class Course {
         categories.add(category);
     }
 
+    public Category findCategory(String categoryName ){
+        return null;
+       // TODO: Implement the findCatgeory logic;
+    }
+
+
     //Here is the Grand Total logic
     public double calculateFinalGrade() {
         double finalGrade = 0;
