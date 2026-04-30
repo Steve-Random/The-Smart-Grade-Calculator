@@ -9,7 +9,7 @@ public class Category {
     public Category(String name, double weight) {
         this.name = name;
         this.weight = weight;
-        this.assignments = new ArrayList<>();
+        this.assignments = new ArrayList<Assignment>();
     }
 
     //Adds a new grade to this specific category

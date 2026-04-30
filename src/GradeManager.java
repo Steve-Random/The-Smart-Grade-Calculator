@@ -18,7 +18,7 @@ public class GradeManager {
         String name = scanner.nextLine();
 
         System.out.println("Enter the Course number: ");
-        int number = scanner.nextInt();
+        int number = Integer.parseInt(scanner.nextLine());
 
         currentCourse = new Course(name,number);
 
@@ -31,8 +31,8 @@ public class GradeManager {
             switch (choice){
                 case 1: addCategory();
                 case 2: addGrade();
-                case 3: //TODO : Implement a showResults() method
-                case 4: //TODO : Implement a runWhatIfAnalysis() method
+                case 3: showResults();
+                case 4: runWhatIfAnalysis();
                 case 5: running = false;
             }
 
@@ -40,7 +40,7 @@ public class GradeManager {
     }
 
     private void displayMenu(){
-        System.out.println("\n----" + currentCourse.getName() + currentCourse.getCourseNumber()+ "Menu---");
+        System.out.println("\n----" + currentCourse.getName() + currentCourse.getCourseNumber()+ " Menu---");
         System.out.println("1.Add a category (Exams, Homework, Quiz etc)");
         System.out.println("2.Add an Assignment Grade");
         System.out.println("3.View current grade");
@@ -54,27 +54,55 @@ public class GradeManager {
         String categoryName = scanner.nextLine();
 
         System.out.println("Please enter the category weight: ");
-        double categoryWeight = scanner.nextDouble();
+        double categoryWeight = Double.parseDouble(scanner.nextLine());
 
         currentCourse.addCategory(new Category(categoryName,categoryWeight));
     }
 
 
     private void addGrade(){
-        System.out.println(" Enter category name: ");
+        System.out.println("Enter category name: ");
         String categoryName = scanner.nextLine();
 
-        System.out.println(" Enter assignment name: ");
-        String assignmentName = scanner.nextLine();
+        Category found = currentCourse.findCategory(categoryName);
+        if ( found != null ) {
 
-        System.out.println(" Enter score: ");
-        double score = scanner.nextDouble();
+            System.out.println("Enter assignment name: ");
+            String assignmentName = scanner.nextLine();
 
-        System.out.println(" Enter max score: ");
-        double maxScore = scanner.nextDouble();
+            System.out.println(" Enter score: ");
+            double score = Double.parseDouble(scanner.nextLine());
 
-        currentCourse.findCategory(categoryName).addAssignment(assignmentName,score,maxScore);
+            System.out.println(" Enter max score: ");
+            double maxScore = Double.parseDouble(scanner.nextLine());
+
+           found.addAssignment(assignmentName, score, maxScore);
+        }else{
+            System.out.println("Categpry " + categoryName + " not found");
+        }
     }
+
+    private void showResults(){
+        double result = currentCourse.calculateFinalGrade();
+        System.out.println(" Your current grade is: " + result);
+    }
+
+    private void runWhatIfAnalysis(){
+        System.out.println(" What is your target grade: ");
+        double targetGrade = Double.parseDouble(scanner.nextLine());
+        double neededScore = currentCourse.calculateRequiredScore( targetGrade );
+
+        if (neededScore > 100){
+            System.out.println("To get a " + targetGrade + ", you need a " + neededScore+"  (Better start extra credit!)\n");
+        } else if (neededScore < 0) {
+            System.out.println("You have already reached your target, nice!");
+
+        } else {
+            System.out.printf("To get a %.1f, you need a %.1f%% on your remaining work\n", targetGrade, neededScore);
+
+        }
+    }
+
 
     public String calculateTotalGrade() {
     return "";

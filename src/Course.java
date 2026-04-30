@@ -9,7 +9,7 @@ public class Course {
     public Course(String name, int courseNumber) {
         this.name = name;
         this.courseNumber = courseNumber;
-        this.categories = new ArrayList<>();
+        this.categories = new ArrayList<Category>();
     }
 
     public void addCategory(Category category) {
@@ -17,8 +17,12 @@ public class Course {
     }
 
     public Category findCategory(String categoryName ){
+        for ( Category category : categories){
+            if (category.getName().equalsIgnoreCase(categoryName)){
+                return category;
+            }
+        }
         return null;
-       // TODO: Implement the findCatgeory logic;
     }
 
 
