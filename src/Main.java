@@ -1,4 +1,4 @@
-public static void main(String[] args) {
+public static void main(String[] args) throws IOException {
     /*Course myCourse = new Course("Computer Science", 101);
 
     Category homework = new Category("HomeWork", 0.4);

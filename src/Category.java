@@ -1,7 +1,9 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Category {
+public class Category implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String name;
     private double weight; // (use decimals example: 0.35 for 35%
     private List<Assignment> assignments;

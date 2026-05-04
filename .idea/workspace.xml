@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ea2f083-8d8c-4c23-be11-a871f7bced3d" name="Changes" comment="Added showResults() and whatIfAnalysis() in the GradeManager and did some slight modifications in other methods.">
+    <list default="true" id="6ea2f083-8d8c-4c23-be11-a871f7bced3d" name="Changes" comment="Added &quot;breaks&quot; to my switch() making the program to work well now.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GradeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GradeManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777511269172</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added &quot;breaks&quot; to my switch() making the program to work well now.">
+      <option name="closed" value="true" />
+      <created>1777861959144</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1777861959145</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +224,7 @@
     <MESSAGE value="Trying the calculateReqiredScore method in main. working fine but with a small tiny logic fix to do." />
     <MESSAGE value="Started Working on the GradeManager class so it can serve as a User Interface class. Still have some methods to implement for proper interaction between the classes." />
     <MESSAGE value="Added showResults() and whatIfAnalysis() in the GradeManager and did some slight modifications in other methods." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added showResults() and whatIfAnalysis() in the GradeManager and did some slight modifications in other methods." />
+    <MESSAGE value="Added &quot;breaks&quot; to my switch() making the program to work well now." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added &quot;breaks&quot; to my switch() making the program to work well now." />
   </component>
 </project>

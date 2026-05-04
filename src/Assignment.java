@@ -1,5 +1,8 @@
-public class Assignment {
+import java.io.Serializable;
+
+public class Assignment implements Serializable {
     // Purpose: To hold data for a single piece of work
+    private static final long serialVersionUID = 1L;
     private String name;
     private double score;
     private double maxScore;

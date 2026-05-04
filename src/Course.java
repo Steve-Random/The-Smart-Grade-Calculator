@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.io.Serializable;
 
-public class Course {
+public class Course implements Serializable{
+    private static final long serialVersionUID = 1L;
     private String name;
     private int courseNumber;
     private List<Category> categories;

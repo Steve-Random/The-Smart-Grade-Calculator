@@ -1,17 +1,27 @@
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class GradeManager {
-
     private Scanner scanner;
     private Course currentCourse;
 
-    public GradeManager() {
+    public GradeManager() throws IOException {
         this.scanner = new Scanner(System.in);
     }
 
-    public void start(){
+    public void start() throws FileNotFoundException {
+        File savedData = new File("grades.dat");
+        if (savedData.exists()){
+            try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(savedData))){
+                currentCourse = (Course) ois.readObject();
+                System.out.println("Welcome back! Loaded " + currentCourse.getName() + currentCourse.getCourseNumber());
+            }catch (Exception e){
+                System.out.println("Welcome, started fresh-no previous data found.");
+            }
+        }
+        if (currentCourse == null){
         System.out.println("Welcome to the Smart Grade Calculator!");
 
         System.out.println("Enter the name of your Course: ");
@@ -20,7 +30,7 @@ public class GradeManager {
         System.out.println("Enter the Course number: ");
         int number = Integer.parseInt(scanner.nextLine());
 
-        currentCourse = new Course(name,number);
+        currentCourse = new Course(name,number);}
 
         boolean running = true;
 
@@ -37,7 +47,10 @@ public class GradeManager {
                 break;
                 case 4: runWhatIfAnalysis();
                 break;
-                case 5: running = false;
+                case 5: saveSerializedData();
+                        //exportHumanReadable();
+                        System.out.println("Progress saved. See you later!");
+                        running = false;
                 break;
             }
 
@@ -106,6 +119,14 @@ public class GradeManager {
             System.out.printf("To get a %.1f, you need a %.1f%% on your remaining work\n", targetGrade, neededScore);
 
         }
+    }
+
+    private void saveSerializedData(){
+    try ( ObjectOutputStream oos = new ObjectOutputStream( new FileOutputStream( "grades.dat"));){
+        oos.writeObject(currentCourse);
+    }catch(IOException e){
+        System.out.println( "Error saving binary data: " + e.getMessage());
+    }
     }
 
 
