@@ -1,5 +1,8 @@
-public class Assignment {
+import java.io.Serializable;
+
+public class Assignment implements Serializable {
     // Purpose: To hold data for a single piece of work
+    private static final long serialVersionUID = 1L;
     private String name;
     private double score;
     private double maxScore;
@@ -7,7 +10,7 @@ public class Assignment {
     public Assignment(String name, double score, double maxScore) {
         this.name = name;
         this.score = score;
-        this.maxScore = (maxScore == 0) ? 1 : maxScore;
+        this.maxScore = (maxScore <= 0) ? 1 : maxScore;
     }
 
     // Get Methods

@@ -1,71 +1,98 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
 import java.util.Scanner;
 
 public class GradeManager {
-
     private Scanner scanner;
     private Course currentCourse;
 
-    public GradeManager() {
+    public GradeManager() throws IOException {
         this.scanner = new Scanner(System.in);
     }
 
-    public void start(){
-        System.out.println("Welcome to the Smart Grade Calculator!");
+    public void start() throws IOException {
+        File savedData = new File("grades.dat");
+        if (savedData.exists()) {
+            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(savedData))) {
+                currentCourse = (Course) ois.readObject();
+                System.out.println("Welcome back! Loaded " + currentCourse.getName() + currentCourse.getCourseNumber());
+            } catch (Exception e) {
+                System.out.println("Welcome, started fresh-no previous data found.");
+            }
+        }
+        if (currentCourse == null) {
+            System.out.println("Welcome to the Smart Grade Calculator!");
 
-        System.out.println("Enter the name of your Course: ");
-        String name = scanner.nextLine();
+            System.out.println("Enter the name of your Course: ");
+            String name = scanner.nextLine();
 
-        System.out.println("Enter the Course number: ");
-        int number = Integer.parseInt(scanner.nextLine());
+            System.out.println("Enter the Course number: ");
+            int number = Integer.parseInt(scanner.nextLine());
 
-        currentCourse = new Course(name,number);
+            currentCourse = new Course(name, number);
+        }
 
         boolean running = true;
 
-        while (running){
+        while (running) {
             displayMenu();
             int choice = Integer.parseInt(scanner.nextLine());
 
-            switch (choice){
-                case 1: addCategory();
-                case 2: addGrade();
-                case 3: showResults();
-                case 4: runWhatIfAnalysis();
-                case 5: running = false;
+            switch (choice) {
+                case 1:
+                    addCategory();
+                    break;
+                case 2:
+                    addGrade();
+                    break;
+                case 3:
+                    showResults();
+                    break;
+                case 4:
+                    runWhatIfAnalysis();
+                    break;
+
+                case 5:
+                    exportHumanReadable();
+                    running = false;
+                    break;
+                case 6:
+                    saveSerializedData();
+                    System.out.println("Progress saved. See you later!");
+                    running = false;
+                    break;
             }
 
         }
     }
 
-    private void displayMenu(){
-        System.out.println("\n----" + currentCourse.getName() + currentCourse.getCourseNumber()+ " Menu---");
+    private void displayMenu() {
+        System.out.println("\n----" + currentCourse.getName() + currentCourse.getCourseNumber() + " Menu---");
         System.out.println("1.Add a category (Exams, Homework, Quiz etc)");
         System.out.println("2.Add an Assignment Grade");
         System.out.println("3.View current grade");
         System.out.println("4.What-if Analysis");
-        System.out.println("5.Exit");
+        System.out.println("5.Create a Report and Exit");
+        System.out.println("6.Exit");
         System.out.println("Choice: ");
     }
 
-    private void addCategory(){
+    private void addCategory() {
         System.out.println("Please enter the category name: ");
         String categoryName = scanner.nextLine();
 
         System.out.println("Please enter the category weight: ");
         double categoryWeight = Double.parseDouble(scanner.nextLine());
 
-        currentCourse.addCategory(new Category(categoryName,categoryWeight));
+        currentCourse.addCategory(new Category(categoryName, categoryWeight));
     }
 
 
-    private void addGrade(){
+    private void addGrade() {
         System.out.println("Enter category name: ");
         String categoryName = scanner.nextLine();
 
         Category found = currentCourse.findCategory(categoryName);
-        if ( found != null ) {
+        if (found != null) {
 
             System.out.println("Enter assignment name: ");
             String assignmentName = scanner.nextLine();
@@ -76,24 +103,24 @@ public class GradeManager {
             System.out.println(" Enter max score: ");
             double maxScore = Double.parseDouble(scanner.nextLine());
 
-           found.addAssignment(assignmentName, score, maxScore);
-        }else{
-            System.out.println("Categpry " + categoryName + " not found");
+            found.addAssignment(assignmentName, score, maxScore);
+        } else {
+            System.out.println("Category " + categoryName + " not found");
         }
     }
 
-    private void showResults(){
+    private void showResults() {
         double result = currentCourse.calculateFinalGrade();
         System.out.println(" Your current grade is: " + result);
     }
 
-    private void runWhatIfAnalysis(){
+    private void runWhatIfAnalysis() {
         System.out.println(" What is your target grade: ");
         double targetGrade = Double.parseDouble(scanner.nextLine());
-        double neededScore = currentCourse.calculateRequiredScore( targetGrade );
+        double neededScore = currentCourse.calculateRequiredScore(targetGrade);
 
-        if (neededScore > 100){
-            System.out.println("To get a " + targetGrade + ", you need a " + neededScore+"  (Better start extra credit!)\n");
+        if (neededScore > 100) {
+            System.out.println("To get a " + targetGrade + ", you need a " + neededScore + "  (Better start extra credit!)\n");
         } else if (neededScore < 0) {
             System.out.println("You have already reached your target, nice!");
 
@@ -103,16 +130,55 @@ public class GradeManager {
         }
     }
 
+    private void saveSerializedData() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("grades.dat"));) {
+            oos.writeObject(currentCourse);
+        } catch (IOException e) {
+            System.out.println("Error saving binary data: " + e.getMessage());
+        }
+    }
+
+    private void exportHumanReadable() throws IOException {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("My_Grades_Report.txt"))) {
+            writer.println("  ====================================================== ");
+            writer.println("      ----SMART GRADE CALCULATOR REPORT----    ");
+            writer.println("  ====================================================== ");
+            writer.println("Course: " + currentCourse.getName() + " " + currentCourse.getCourseNumber());
+            writer.printf("Overall Current Grade: %.2f%%\n", currentCourse.calculateFinalGrade());
+            writer.println("-----------------------------------------------------------");
+
+            for (Category category : currentCourse.getCategories()) {
+                writer.println(" CATEGORY: " + category.getName());
+                writer.println(" Weight: " + category.getWeight() * 100 + "%");
+                writer.printf(" Category Average: %.2f%%\n", category.calculateCategoryAverage());
+                if(category.getAssignments()!=null){
+                writer.println(" Assignments: ");
+                for (Assignment assignment : category.getAssignments()) {
+                    writer.printf("  -%s: %.2f/%.2f\n", assignment.getName(), assignment.getScore(), assignment.getMaxScore());
+                    writer.println();
+                }
+                }
+                writer.println();
+                writer.println(" Report Generated on: " + new java.util.Date());
+                System.out.println("Success!, Your Readable Report was saved to 'My_Grades_Report.txt'.");
+
+            }
+        } catch (IOException e) {
+            System.out.println("Error, your text report could not be generated: " + e.getMessage());
+        }
+    }
+
 
     public String calculateTotalGrade() {
-    return "";
+        return "";
     }
 
     public double calculateGoalScore() {
-    return 0;
+        return 0;
     }
 
     public void saveToFile() {
 
     }
 }
+
