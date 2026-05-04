@@ -1,0 +1,12 @@
+  ====================================================== 
+      ----SMART GRADE CALCULATOR REPORT----    
+  ====================================================== 
+Course: Linear Algebra 265
+Overall Current Grade: 0.00%
+-----------------------------------------------------------
+ CATEGORY: Exam
+ Weight: 60.0%
+ Category Average: 0.00%
+ Assignments: 
+
+ Report Generated on: Mon May 04 11:59:56 EDT 2026
