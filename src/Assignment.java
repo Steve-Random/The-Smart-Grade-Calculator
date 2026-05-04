@@ -7,7 +7,7 @@ public class Assignment {
     public Assignment(String name, double score, double maxScore) {
         this.name = name;
         this.score = score;
-        this.maxScore = (maxScore == 0) ? 1 : maxScore;
+        this.maxScore = (maxScore <= 0) ? 1 : maxScore;
     }
 
     // Get Methods

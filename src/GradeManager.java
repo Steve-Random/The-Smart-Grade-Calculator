@@ -30,17 +30,22 @@ public class GradeManager {
 
             switch (choice){
                 case 1: addCategory();
+                break;
                 case 2: addGrade();
+                break;
                 case 3: showResults();
+                break;
                 case 4: runWhatIfAnalysis();
+                break;
                 case 5: running = false;
+                break;
             }
 
         }
     }
 
     private void displayMenu(){
-        System.out.println("\n----" + currentCourse.getName() + currentCourse.getCourseNumber()+ " Menu---");
+        System.out.println("\n----" + currentCourse.getName() + currentCourse.getCourseNumber() + " Menu---");
         System.out.println("1.Add a category (Exams, Homework, Quiz etc)");
         System.out.println("2.Add an Assignment Grade");
         System.out.println("3.View current grade");
@@ -78,7 +83,7 @@ public class GradeManager {
 
            found.addAssignment(assignmentName, score, maxScore);
         }else{
-            System.out.println("Categpry " + categoryName + " not found");
+            System.out.println("Category " + categoryName + " not found");
         }
     }
 
