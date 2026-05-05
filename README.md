@@ -1,6 +1,6 @@
 # The-Smart-Grade-Calculator(Java)
 A robust, object-oriented Java application designed to help students manage academic performance through weighted calculations and predictive "what-if" scenarios.
-This tool goes beyond simple averaging by providing data persistence an analytical grade forecasting.
+This tool goes beyond simple averaging by providing data persistence and analytical-grade forecasting.
 
 ## Features
 - **Weighted Average Calculation:**
@@ -34,6 +34,6 @@ Includes a back-calculation engine that determines the minimum score required on
 - An IDE
 ### Installation
 1. Clone the repository:
-  - 
+  - https://github.com/Steve-Random/The-Smart-Grade-Calculator.git
 2. Open the project in your IDE.
 3. Run Main.java to start the application.
