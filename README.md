@@ -37,6 +37,3 @@ Includes a back-calculation engine that determines the minimum score required on
   - 
 2. Open the project in your IDE.
 3. Run Main.java to start the application.
-
-
-### Installation
