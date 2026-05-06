@@ -18,6 +18,7 @@ Includes a back-calculation engine that determines the minimum score required on
 ## Technical Stack
 - Language: Java 26
 - Concepts: Object-Oriented Programming, File I/O, Binary Serialization, Exception Handling, Java Collections Framework (ArrayList)
+- Testing: JUnit5 (Unit Testing & Test-Driven Development)
 - IDE: IntelliJ IDEA
 - Version Control: Git
 
