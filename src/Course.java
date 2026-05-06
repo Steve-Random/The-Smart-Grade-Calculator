@@ -42,21 +42,30 @@ public class Course implements Serializable{
     //The method to calculate required points for a target grade
     public double calculateRequiredScore( double targetGrade ){
         double currentPoints = calculateFinalGrade();
-        double totalWeightUsed = 0;
+        double upComingWeight = 0;
+        int totalAssignments = 0;
+        double weightPerAssignment = 0;
+
         for( Category category: categories){
-            if (!category.getAssignments().isEmpty()){
-                totalWeightUsed += category.getWeight();
+            if(category.getAssignments().isEmpty()){
+                upComingWeight+= category.getWeight();
+            }else {
+                totalAssignments = category.getAssignments().size();
+                weightPerAssignment = category.getWeight()/totalAssignments;
+            for ( Assignment assignment: category.getAssignments()){
+                if(assignment.isPending()){
+                    upComingWeight+= weightPerAssignment;
+                }
+            }
             }
         }
-        double remainingWeight = 1.0 - totalWeightUsed;
 
-        if( remainingWeight <= 0){
+        if( upComingWeight <= 0){
             System.out.println("No weight remaining in the course");
             return -1;
         }
 
-        return (targetGrade - currentPoints)/remainingWeight;
-    }
+        return (targetGrade - currentPoints)/upComingWeight;}
 
     //Get Methods
     public String getName() {

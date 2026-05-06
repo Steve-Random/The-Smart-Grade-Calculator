@@ -19,11 +19,13 @@ class CourseTest {
         //Weighted Average: (80*0.5) + (100*0.5) = 90
         assertEquals(90, myCourse.calculateFinalGrade());
     }
-
+//TODO: modify calculateRequiredScore
     @Test
     void calculateRequiredScore() { // What-If Analysis
         Category exams = new Category("Exams", 1.0);
-        exams.addAssignment("Exam1", 70, 100);
+        exams.addAssignment("Exam1", 100, 100);
+        exams.addAssignment("Exam2", 0, 100,true);
+
         myCourse.addCategory(exams);
         //Exam is the only category and I want an 80 overall, what should I get on the next exam?
         assertEquals(90, myCourse.calculateRequiredScore(80));
