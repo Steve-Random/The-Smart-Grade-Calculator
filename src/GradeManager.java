@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class GradeManager {
@@ -97,13 +98,27 @@ public class GradeManager {
             System.out.println("Enter assignment name: ");
             String assignmentName = scanner.nextLine();
 
-            System.out.println(" Enter score: ");
-            double score = Double.parseDouble(scanner.nextLine());
+            System.out.println("Is this an upcoming assignment? ('y' for yes 'n' for no) :  ");
+            String response = scanner.nextLine().toLowerCase();
 
-            System.out.println(" Enter max score: ");
-            double maxScore = Double.parseDouble(scanner.nextLine());
+            if (response.equals("n")) {
 
-            found.addAssignment(assignmentName, score, maxScore);
+                System.out.println(" Enter score: ");
+                double score = Double.parseDouble(scanner.nextLine());
+
+                System.out.println(" Enter max score: ");
+                double maxScore = Double.parseDouble(scanner.nextLine());
+
+                found.addAssignment(assignmentName, score, maxScore);
+                System.out.println("Grade added!");
+            }
+            else{
+                System.out.println(" Enter max score: ");
+                double maxScore = Double.parseDouble(scanner.nextLine());
+
+                found.addAssignment(assignmentName, 0, maxScore,true);
+                System.out.println("Upcoming assignment added!");
+            }
         } else {
             System.out.println("Category " + categoryName + " not found");
         }

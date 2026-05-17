@@ -18,6 +18,7 @@ public class Category implements Serializable {
     public void addAssignment(String assignmentName, double score, double maxScore) {
         assignments.add(new Assignment(assignmentName, score, maxScore));
     }
+
     public void addAssignment(String assignmentName, double score, double maxScore, boolean isPending) {
         assignments.add(new Assignment(assignmentName, score, maxScore, isPending));
     }
@@ -31,10 +32,12 @@ public class Category implements Serializable {
         double sumOfScores = 0, sumOfTotals = 0, mean = 0;
 
         for (Assignment currentAssignment : assignments) {
-            if (!currentAssignment.isPending()){
-            sumOfScores += currentAssignment.getScore();
-            sumOfTotals += currentAssignment.getMaxScore();}
+            if (!currentAssignment.isPending()) {
+                sumOfScores += currentAssignment.getScore();
+                sumOfTotals += currentAssignment.getMaxScore();
+            }
         }
+
         return (sumOfTotals == 0) ? 0 : (sumOfScores / sumOfTotals) * 100;
     }
 

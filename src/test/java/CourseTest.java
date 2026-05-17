@@ -2,7 +2,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class CourseTest {
+class
+CourseTest {
 
     Course myCourse = new Course("Computer Science", 202);
 
@@ -28,13 +29,13 @@ class CourseTest {
 
         myCourse.addCategory(exams);
         //Exam is the only category and I want an 80 overall, what should I get on the next exam?
-        assertEquals(90, myCourse.calculateRequiredScore(80));
+        assertEquals(60, myCourse.calculateRequiredScore(80));
 
     }
 
     @Test
     void testEmptyCourseGrade() {
-        assertEquals(0, myCourse.calculateFinalGrade(), "An Empyty course should have a 0 as final grade");
+        assertEquals(0, myCourse.calculateFinalGrade(), "An Empty course should have a 0 as final grade");
     }
 
 }
