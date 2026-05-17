@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class GradeManager {
@@ -46,17 +45,20 @@ public class GradeManager {
                     addGrade();
                     break;
                 case 3:
-                    showResults();
+                    updatePendingAssignment();
                     break;
                 case 4:
+                    showResults();
+                    break;
+                case 5:
                     runWhatIfAnalysis();
                     break;
 
-                case 5:
+                case 6:
                     exportHumanReadable();
                     running = false;
                     break;
-                case 6:
+                case 7:
                     saveSerializedData();
                     System.out.println("Progress saved. See you later!");
                     running = false;
@@ -111,16 +113,41 @@ public class GradeManager {
 
                 found.addAssignment(assignmentName, score, maxScore);
                 System.out.println("Grade added!");
-            }
-            else{
+            } else {
                 System.out.println(" Enter max score: ");
                 double maxScore = Double.parseDouble(scanner.nextLine());
 
-                found.addAssignment(assignmentName, 0, maxScore,true);
+                found.addAssignment(assignmentName, 0, maxScore, true);
                 System.out.println("Upcoming assignment added!");
             }
         } else {
             System.out.println("Category " + categoryName + " not found");
+        }
+    }
+
+    private void updatePendingAssignment() {
+        System.out.println("Enter category name ( Where the assignment is found ) : ");
+        String categoryName = scanner.nextLine();
+        Category category = currentCourse.findCategory(categoryName);
+
+        if (category != null) {
+            System.out.println("Enter the name of the pending assignment : ");
+            String assignmentName = scanner.nextLine();
+            Assignment assignment = category.findAssignment(assignmentName);
+
+            if ((assignment != null) && (assignment.isPending())) {
+                System.out.println("Enter your earned score: ");
+                double score = Double.parseDouble(scanner.nextLine());
+
+                assignment.setScore(score);
+                assignment.setPending(false);
+
+                System.out.println("Success! " + assignmentName + " is now graded.");
+            } else {
+                System.out.println("Assignment not found or it is already graded");
+            }
+        } else {
+            System.out.println("Category not found.");
         }
     }
 
@@ -166,12 +193,12 @@ public class GradeManager {
                 writer.println(" CATEGORY: " + category.getName());
                 writer.println(" Weight: " + category.getWeight() * 100 + "%");
                 writer.printf(" Category Average: %.2f%%\n", category.calculateCategoryAverage());
-                if(category.getAssignments()!=null){
-                writer.println(" Assignments: ");
-                for (Assignment assignment : category.getAssignments()) {
-                    writer.printf("  -%s: %.2f/%.2f\n", assignment.getName(), assignment.getScore(), assignment.getMaxScore());
-                    writer.println();
-                }
+                if (category.getAssignments() != null) {
+                    writer.println(" Assignments: ");
+                    for (Assignment assignment : category.getAssignments()) {
+                        writer.printf("  -%s: %.2f/%.2f\n", assignment.getName(), assignment.getScore(), assignment.getMaxScore());
+                        writer.println();
+                    }
                 }
                 writer.println();
                 writer.println(" Report Generated on: " + new java.util.Date());

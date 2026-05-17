@@ -23,6 +23,15 @@ public class Category implements Serializable {
         assignments.add(new Assignment(assignmentName, score, maxScore, isPending));
     }
 
+    public Assignment findAssignment(String AssignmentName) {
+        for (Assignment assignment : assignments) {
+            if (assignment.getName().equalsIgnoreCase(AssignmentName)) {
+                return assignment;
+            }
+        }
+        return null;
+    }
+
     //Method to return the mean of all assignments for a category
     public double calculateCategoryAverage() {
         if (assignments.isEmpty()) {

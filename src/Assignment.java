@@ -14,10 +14,21 @@ public class Assignment implements Serializable {
         this.maxScore = (maxScore <= 0) ? 1 : maxScore;
         this.isPending = isPending;
     }
+
     //An overloaded constructor for completed assignments
-    public Assignment(String name, double score, double maxScore){
-    this(name,score,maxScore,false);
+    public Assignment(String name, double score, double maxScore) {
+        this(name, score, maxScore, false);
     }
+
+    //Setter methods
+    public void setScore(double score) {
+        this.score = score;
+    }
+
+    public void setPending(boolean pending) {
+        this.isPending = pending;
+    }
+
 
     // Get Methods
     public double getPercentage() {
@@ -36,6 +47,8 @@ public class Assignment implements Serializable {
         return maxScore;
     }
 
-    public  boolean isPending(){ return  isPending;}
+    public boolean isPending() {
+        return isPending;
+    }
 }
 

@@ -20,7 +20,7 @@ CourseTest {
         //Weighted Average: (80*0.5) + (100*0.5) = 90
         assertEquals(90, myCourse.calculateFinalGrade());
     }
-//TODO: modify calculateRequiredScore
+
     @Test
     void calculateRequiredScore() { // What-If Analysis
         Category exams = new Category("Exams", 1.0);
