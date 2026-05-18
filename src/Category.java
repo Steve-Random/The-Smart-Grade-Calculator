@@ -19,6 +19,19 @@ public class Category implements Serializable {
         assignments.add(new Assignment(assignmentName, score, maxScore));
     }
 
+    public void addAssignment(String assignmentName, double score, double maxScore, boolean isPending) {
+        assignments.add(new Assignment(assignmentName, score, maxScore, isPending));
+    }
+
+    public Assignment findAssignment(String AssignmentName) {
+        for (Assignment assignment : assignments) {
+            if (assignment.getName().equalsIgnoreCase(AssignmentName)) {
+                return assignment;
+            }
+        }
+        return null;
+    }
+
     //Method to return the mean of all assignments for a category
     public double calculateCategoryAverage() {
         if (assignments.isEmpty()) {
@@ -28,9 +41,12 @@ public class Category implements Serializable {
         double sumOfScores = 0, sumOfTotals = 0, mean = 0;
 
         for (Assignment currentAssignment : assignments) {
-            sumOfScores += currentAssignment.getScore();
-            sumOfTotals += currentAssignment.getMaxScore();
+            if (!currentAssignment.isPending()) {
+                sumOfScores += currentAssignment.getScore();
+                sumOfTotals += currentAssignment.getMaxScore();
+            }
         }
+
         return (sumOfTotals == 0) ? 0 : (sumOfScores / sumOfTotals) * 100;
     }
 
