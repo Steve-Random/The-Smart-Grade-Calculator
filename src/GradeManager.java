@@ -126,6 +126,22 @@ public class GradeManager {
     }
 
     private void updatePendingAssignment() {
+        // Listing all pending assignments first
+        System.out.println("\n----Current Pending Assignments---");
+        boolean foundPendingAssignment = false;
+        for( Category category: currentCourse.getCategories()){
+            for (Assignment assignment: category.getAssignments()){
+                if ( assignment.isPending()){
+                    System.out.println("[" + category.getName() + "] " + assignment.getName());
+                    foundPendingAssignment = true;
+                }
+            }
+        }
+
+        if(foundPendingAssignment){
+            System.out.println("No pending assignments found, everything is already graded.");
+            return;
+        }
         System.out.println("Enter category name ( Where the assignment is found ) : ");
         String categoryName = scanner.nextLine();
         Category category = currentCourse.findCategory(categoryName);
