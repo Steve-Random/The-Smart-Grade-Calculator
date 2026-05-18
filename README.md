@@ -41,6 +41,11 @@ If you have 100% on Exam1 (worth 50% worth 80% of your grade) and want an 80% ov
 - Category.java: Logic layer that manages assignments and calculates weighted contributions.
 - Assignment.java: The base data model for individual scores and maximum point values.
 
+## Future Roadmap
+- JavaFX/Swing GUI: Transitioning from a Command Line Interface (CLI) to a full desktop application for a more intuitive user experience.
+- Data Visualization: Adding charts to show grade trends over time.
+- Export to PDF: Enhancing the reporting to generate a professional-grade transcript.
+
 ## Getting Started
 ### Prerequisites
 - Java Development Kit 17 or higher
