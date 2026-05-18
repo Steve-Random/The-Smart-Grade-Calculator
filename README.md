@@ -2,7 +2,7 @@
 A robust, object-oriented Java application designed to help students manage academic performance through weighted calculations and predictive "what-if" scenarios.
 This tool goes beyond simple averaging by providing data persistence and analytical-grade forecasting.
 
-## KeY Features
+## Key Features
 - **Weighted Average Calculation:**
 Handles complex grading scales by managing distinct categories (example: Exams, Homework, Quizzes) with individual percentage weights.
 - **Predictive "What-If" Analysis:**
