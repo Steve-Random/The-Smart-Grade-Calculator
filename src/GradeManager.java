@@ -72,10 +72,11 @@ public class GradeManager {
         System.out.println("\n----" + currentCourse.getName() + currentCourse.getCourseNumber() + " Menu---");
         System.out.println("1.Add a category (Exams, Homework, Quiz etc)");
         System.out.println("2.Add an Assignment Grade");
-        System.out.println("3.View current grade");
-        System.out.println("4.What-if Analysis");
-        System.out.println("5.Create a Report and Exit");
-        System.out.println("6.Exit");
+        System.out.println("3.Update a Pending Assignment");
+        System.out.println("4.View current grade");
+        System.out.println("5.What-if Analysis");
+        System.out.println("6.Create a Report and Exit");
+        System.out.println("7.Save & Exit");
         System.out.println("Choice: ");
     }
 
@@ -126,6 +127,23 @@ public class GradeManager {
     }
 
     private void updatePendingAssignment() {
+        // Listing all pending assignments first
+        System.out.println("\n----Current Pending Assignments---");
+        boolean foundPendingAssignment = false;
+        for( Category category: currentCourse.getCategories()){
+            for (Assignment assignment: category.getAssignments()){
+                if ( assignment.isPending()){
+                    System.out.println("[" + category.getName() + "] " + assignment.getName());
+                    foundPendingAssignment = true;
+                }
+            }
+        }
+        System.out.println();
+
+        if(!foundPendingAssignment){
+            System.out.println("No pending assignments found, everything is already graded.");
+            return;
+        }
         System.out.println("Enter category name ( Where the assignment is found ) : ");
         String categoryName = scanner.nextLine();
         Category category = currentCourse.findCategory(categoryName);
