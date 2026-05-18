@@ -72,10 +72,11 @@ public class GradeManager {
         System.out.println("\n----" + currentCourse.getName() + currentCourse.getCourseNumber() + " Menu---");
         System.out.println("1.Add a category (Exams, Homework, Quiz etc)");
         System.out.println("2.Add an Assignment Grade");
-        System.out.println("3.View current grade");
-        System.out.println("4.What-if Analysis");
-        System.out.println("5.Create a Report and Exit");
-        System.out.println("6.Exit");
+        System.out.println("3.Update a Pending Assignment");
+        System.out.println("4.View current grade");
+        System.out.println("5.What-if Analysis");
+        System.out.println("6.Create a Report and Exit");
+        System.out.println("7.Save & Exit");
         System.out.println("Choice: ");
     }
 
@@ -137,8 +138,9 @@ public class GradeManager {
                 }
             }
         }
+        System.out.println();
 
-        if(foundPendingAssignment){
+        if(!foundPendingAssignment){
             System.out.println("No pending assignments found, everything is already graded.");
             return;
         }

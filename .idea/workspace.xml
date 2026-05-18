@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ea2f083-8d8c-4c23-be11-a871f7bced3d" name="Changes" comment="Added a findAssignment() in Category.java, added updatePendingAssignment and modified the switch in GradeMangaer.java, added setters in Assignment.java">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GradeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GradeManager.java" afterDir="false" />
-    </list>
+    <list default="true" id="6ea2f083-8d8c-4c23-be11-a871f7bced3d" name="Changes" comment="Modified updatePendingAssignment to display a list of pending assignments if any." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,7 +93,15 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in The-Smart-Grade-Calculator">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="UNNAMED_CLASS_CONFIGURATION" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="The-Smart-Grade-Calculator" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in The-Smart-Grade-Calculator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="The-Smart-Grade-Calculator" />
       <option name="PACKAGE_NAME" value="" />
@@ -109,15 +114,6 @@
       <module name="The-Smart-Grade-Calculator" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="AssignmentTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CategoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="The-Smart-Grade-Calculator" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CategoryTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -144,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in The-Smart-Grade-Calculator" />
         <item itemvalue="JUnit.CourseTest.calculateRequiredScore" />
         <item itemvalue="JUnit.CourseTest" />
         <item itemvalue="JUnit.AssignmentTest" />
-        <item itemvalue="JUnit.CategoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -288,7 +284,31 @@
       <option name="project" value="LOCAL" />
       <updated>1779050845071</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Modified updatePendingAssignment to display a list of pending assignments if any.">
+      <option name="closed" value="true" />
+      <created>1779085096951</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1779085096951</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Modified updatePendingAssignment to display a list of pending assignments if any.">
+      <option name="closed" value="true" />
+      <created>1779085427722</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1779085427722</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Modified updatePendingAssignment to display a list of pending assignments if any.">
+      <option name="closed" value="true" />
+      <created>1779086025765</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1779086025765</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,6 +354,7 @@
     <MESSAGE value="Added an overloading constructor to Assignment class and an overloading Method to the Course class. I have a TODO to complete. And I also have to go through my logic again." />
     <MESSAGE value="Resolved the math Logic by doing some modifications to calculateFinalGrade() and calculateRequiredScore. All tests are now working. next steps, adding a way for the user to add a grade to an upcoming assignment." />
     <MESSAGE value="Added a findAssignment() in Category.java, added updatePendingAssignment and modified the switch in GradeMangaer.java, added setters in Assignment.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a findAssignment() in Category.java, added updatePendingAssignment and modified the switch in GradeMangaer.java, added setters in Assignment.java" />
+    <MESSAGE value="Modified updatePendingAssignment to display a list of pending assignments if any." />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified updatePendingAssignment to display a list of pending assignments if any." />
   </component>
 </project>
